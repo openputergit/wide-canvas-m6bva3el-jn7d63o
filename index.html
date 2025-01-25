@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zerostic Partner Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #ff3e00;
+            --secondary: #0f172a;
+        }
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .neubrutalism {
+            border: 4px solid black;
+            box-shadow: 5px 5px 0px black;
+            transition: all 0.2s ease;
+        }
+
+        .neubrutalism:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0px black;
+        }
+
+        .dark {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .dark .neubrutalism {
+            border-color: white;
+            box-shadow: 5px 5px 0px white;
+        }
+
+        .dark .neubrutalism:hover {
+            box-shadow: 7px 7px 0px white;
+        }
+
+        .chart {
+            height: 200px;
+            background: linear-gradient(45deg, #ff3e00 0%, #ff8700 100%);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-slate-50 transition-colors duration-300">
+    <nav class="p-4 bg-white neubrutalism mb-8">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Zerostic Partner Portal</h1>
+            <div class="flex gap-4">
+                <button onclick="toggleTheme()" class="neubrutalism px-4 py-2 bg-white">
+                    <i class="bi bi-moon-stars"></i>
+                </button>
+                <button class="neubrutalism px-4 py-2 bg-white">
+                    <i class="bi bi-bell"></i>
+                </button>
+                <button class="neubrutalism px-4 py-2 bg-white">
+                    <i class="bi bi-person-circle"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <div class="neubrutalism p-6 bg-white">
+                <h3 class="font-bold mb-2">Total Earnings</h3>
+                <p class="text-3xl font-bold text-primary">$12,450</p>
+                <div class="chart mt-4 rounded"></div>
+            </div>
+            <div class="neubrutalism p-6 bg-white">
+                <h3 class="font-bold mb-2">Active Referrals</h3>
+                <p class="text-3xl font-bold text-primary">24</p>
+                <div class="chart mt-4 rounded"></div>
+            </div>
+            <div class="neubrutalism p-6 bg-white">
+                <h3 class="font-bold mb-2">Conversion Rate</h3>
+                <p class="text-3xl font-bold text-primary">68%</p>
+                <div class="chart mt-4 rounded"></div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="neubrutalism p-6 bg-white">
+                <h2 class="text-xl font-bold mb-4">New Referral</h2>
+                <form onsubmit="handleSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block mb-2">Client Name</label>
+                        <input type="text" required class="w-full p-2 neubrutalism">
+                    </div>
+                    <div>
+                        <label class="block mb-2">Email</label>
+                        <input type="email" required class="w-full p-2 neubrutalism">
+                    </div>
+                    <div>
+                        <label class="block mb-2">Phone</label>
+                        <input type="tel" required class="w-full p-2 neubrutalism">
+                    </div>
+                    <div>
+                        <label class="block mb-2">Project Type</label>
+                        <select class="w-full p-2 neubrutalism">
+                            <option>Web Development</option>
+                            <option>Mobile App</option>
+                            <option>Design</option>
+                            <option>Consulting</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block mb-2">Estimated Budget</label>
+                        <input type="number" required class="w-full p-2 neubrutalism">
+                    </div>
+                    <div>
+                        <label class="block mb-2">Project Description</label>
+                        <textarea class="w-full p-2 neubrutalism" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="w-full p-3 bg-primary text-white neubrutalism">
+                        Submit Referral
+                    </button>
+                </form>
+            </div>
+
+            <div class="neubrutalism p-6 bg-white">
+                <h2 class="text-xl font-bold mb-4">Recent Referrals</h2>
+                <div class="space-y-4">
+                    <div class="neubrutalism p-4 bg-slate-50">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-bold">John Smith</h4>
+                                <p class="text-sm">Web Development Project</p>
+                            </div>
+                            <span class="px-2 py-1 bg-green-100 text-green-800 rounded">Active</span>
+                        </div>
+                        <div class="mt-2">
+                            <p class="text-sm">Budget: $15,000</p>
+                            <p class="text-sm">Commission: $300</p>
+                        </div>
+                    </div>
+                    <div class="neubrutalism p-4 bg-slate-50">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="font-bold">Sarah Johnson</h4>
+                                <p class="text-sm">Mobile App Development</p>
+                            </div>
+                            <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded">Pending</span>
+                        </div>
+                        <div class="mt-2">
+                            <p class="text-sm">Budget: $25,000</p>
+                            <p class="text-sm">Commission: $500</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark');
+        }
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            // Handle form submission
+            alert('Referral submitted successfully!');
+            e.target.reset();
+        }
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
